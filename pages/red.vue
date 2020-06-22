@@ -4,12 +4,26 @@
       <h1 class="title">
         red
       </h1>
+      <p>message: {{ message }}</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => {
+    return {
+      message: '',
+    }
+  },
+  mounted() {
+    window.addEventListener('message', (event) => {
+      const message = event.data.message
+      console.log('message', message)
+      this.message = message
+    })
+  },
+}
 </script>
 
 <style>
