@@ -5,6 +5,7 @@
         red
       </h1>
       <p>message: {{ message }}</p>
+      <button @click="doPostMessage">Klik hier</button>
     </div>
   </div>
 </template>
@@ -22,6 +23,11 @@ export default {
       console.log('message', message)
       this.message = message
     })
+  },
+  methods: {
+    doPostMessage: () => {
+      window.parent.postMessage('change color', '*')
+    },
   },
 }
 </script>
