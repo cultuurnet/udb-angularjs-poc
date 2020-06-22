@@ -18,7 +18,7 @@ export default {
   },
   mounted() {
     window.addEventListener('message', (event) => {
-      const message = event.data.message
+      const message = event.data
       console.log('message', message)
       this.message = message
     })
